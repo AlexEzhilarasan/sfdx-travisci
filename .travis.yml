@@ -17,8 +17,8 @@ before_install:
 - export PATH=./sfdx/$(pwd):$PATH
 - sfdx --version
 - sfdx plugins --core
-- sfdx force:auth:jwt:grant --clientid 3MVG9ZF4bs_.MKujjv3ScAtpAwKfsZ0HDnfF5srS11ZOCfufQbsb4uq7KCht1olL7IwjpKnMOE7MxU4zRW_KO --jwtkeyfile assets/server.key
-  --username alex@visualstudiocode.com --setdefaultdevhubusername -a HubOrg
+- sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key
+  --username $USERNAME --setdefaultdevhubusername -a HubOrg
 script:
 - sfdx force:org:create -v HubOrg -s -f config/project-scratch-def.json -a ciorg --wait
 5
